@@ -4,7 +4,7 @@ const { test, expect } = require("@playwright/test");
 //we use browser when we use newcontext() to inject cookies etc 
 //"function()" has no name so can be written like that "()=>"
 
-test.only("Browser context-Validating Error login",async ({browser})=>  
+test("Browser context-Validating Error login",async ({browser})=>  
 {
 
 const context=await browser.newContext()
@@ -17,7 +17,7 @@ const cardTitles=page.locator(".card-body a")
 //go to url and assert title
 await page.goto("https://rahulshettyacademy.com/loginpagePractise")
 console.log(await page.title())
-//login with wrong credentials by using type method
+//login with wrong credentials by using type method and verify error message
 await userName.type("Adem Yildiz")
 await passWord.type('12345')
 await signInBtn.click()
@@ -32,12 +32,6 @@ await signInBtn.click()
 //console.log(await cardTitles.first().textContent())
 //console.log(await cardTitles.nth(1).textContent()) //second element
 console.log(await cardTitles.allTextContents())
-
-//adem@38.com
-//Madem1234
-
-
-
 
 })
 
